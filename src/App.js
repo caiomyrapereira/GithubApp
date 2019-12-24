@@ -1,24 +1,52 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+         <div className="search">
+           <input type="search" placeholder="Digite o nome do usuário no Gihhub"/>
+           <button> search </button>
+         </div>
+
+         <div  className="user-Info">
+           <img src="https://avatars1.githubusercontent.com/u/29695906?v=4" />
+           <h1>
+           <a href="https://github.com/caiomyrapereira">Caio Myra</a>
+           </h1>
+
+           <div className="aboutMe">
+            <p> Estudante de t.i </p>
+           </div>
+
+           <div className="repos-Info" > 
+              <ul>
+                <li>Repositório:21</li>
+                <li>Seguidore:5</li>
+                <li>Seguindo:9</li>
+              </ul>
+           </div>
+
+           <div class="actions">
+             <button> Repositório </button>
+             <button> Favoritos </button>
+           </div> 
+
+           <div className="repos">
+            <h2> Respositórios: </h2>
+            <ul>
+             <li><a href="">Nome do repositório</a></li>
+            </ul>
+           </div>
+
+           <div className="starred">
+             <h2>Favoritos:</h2>
+             <ul>
+               <li><a href="">Nome do favorito</a></li>
+             </ul>
+           </div>
+
+         </div>
     </div>
   );
 }
