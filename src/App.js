@@ -9,7 +9,8 @@ class App extends React.Component{
   this.state = {
     userinfo:{
        userName:'caio myra',
-       img:'https://avatars1.githubusercontent.com/u/29695906?v=4',
+       bio:'Estudante de t.i ',
+       photo:'https://avatars1.githubusercontent.com/u/29695906?v=4',
        link:'https://github.com/caiomyrapereira',
        repos:21,
        followers:5,

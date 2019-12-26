@@ -12,7 +12,7 @@ import Repository from '../Repository';
 const Appcontainer = ({ userinfo, repos, starred }) => (
      <div className="App">
      <Search />   
-     { !!userinfo && <UserInfo   />}
+     { !!userinfo && <UserInfo  userinfo={userinfo}  />}
      { !!userinfo && <Actions />}
      
      { !!repos.length && 
