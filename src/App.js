@@ -1,28 +1,38 @@
 'use strict';
 
 import React from 'react';
-import Search from './Components/Search';
-import UserInfo from './Components/UserInfo';
-import Actions from './Components/Actions';
-import Repository from './Components/Repository';
-
-function App() {
-  return (
-    <div className="App">
-     <Search />   
-     <UserInfo />
-     <Actions />
-     
-     <Repository className={'repos'} title={'Repositórios'}>
-      <li><a href="">Nome do Repositório</a></li>
-     </ Repository>
-
-     <Repository className={'starred'} title={'Favoritos'} >
-      <li><a href="">Nome do Favorito</a></li>
-     </Repository>
-
-    </div>
-  );
+import Appcontainer from './Components/appContainer';
+class App extends React.Component{
+ 
+ constructor(){
+  super();
+  this.state = {
+    userinfo:{
+       userName:'caio myra',
+       img:'https://avatars1.githubusercontent.com/u/29695906?v=4',
+       link:'https://github.com/caiomyrapereira',
+       repos:21,
+       followers:5,
+       following:9
+    },
+    repos:[{
+      name:'Repos',
+      link:'#'
+    }],
+    starred:[{
+      name:'Repos',
+      link:'#'
+    }]
+  };
+ }
+ 
+ render(){ 
+  return <Appcontainer
+             userinfo = {this.state.userinfo}  
+              repos = {this.state.repos}
+              starred = {this.state.starred}
+          />
+ }
 }
 
 export default App;

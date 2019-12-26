@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-const UserInfo = (props)=>( 
+const UserInfo = ()=>( 
     <div  className="user-Info">
      <img src="https://avatars1.githubusercontent.com/u/29695906?v=4" />
      <h1>
