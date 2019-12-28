@@ -4,8 +4,8 @@ import React from 'react';
 
 const Actions  = (props)=>(
          <div className="actions">
-          <button> Repositório </button>
-          <button> Favoritos </button>
+          <button onClick={props.handleRepos} > Repositório </button>
+          <button onClick={props.handleStarred} > Favoritos </button>
          </div> 
 );
 

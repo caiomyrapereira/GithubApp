@@ -1,37 +1,86 @@
 'use strict';
 
 import React from 'react';
+import ajax  from '@fdaciuk/ajax';
 import Appcontainer from './Components/appContainer';
+
 class App extends React.Component{
  
  constructor(){
   super();
   this.state = {
-    userinfo:{
-       userName:'caio myra',
-       bio:'Estudante de t.i ',
-       photo:'https://avatars1.githubusercontent.com/u/29695906?v=4',
-       link:'https://github.com/caiomyrapereira',
-       repos:21,
-       followers:5,
-       following:9
-    },
-    repos:[{
-      name:'Repos',
-      link:'#'
-    }],
-    starred:[{
-      name:'Repos',
-      link:'#'
-    }]
+    userinfo:null,
+    repos:[],
+    starred:[]
   };
  }
  
+ handleSearch(e){
+  const value = document.querySelector('[data-js="search"]').value; 
+  ajax().get(`https://api.github.com/users/${value}`)
+  .then((respose)=>{
+    this.setState({
+      userinfo: {
+        userName:respose.name,
+        bio:respose.bio,
+        photo:respose.avatar_url,
+        link:`https://github.com/${respose.login}`,
+        linkStarred:`https://api.github.com/users/${respose.login}/starred`,
+        linkRepos:respose.repos_url,
+        repos:respose.public_repos,
+        followers:respose.followers,
+        following:respose.following
+      }     
+    })
+  })
+ }
+
+ handleRepos(e){
+    if(!!this.state.repos.length)
+      return ;
+
+    const url = this.state.userinfo.linkRepos;
+    ajax()
+    .get(url)
+    .then((respose) =>{
+      this.setState({ 
+        repos:respose.map( (elem , index) =>{
+          return {   
+            name:elem.name,
+            link:elem.html_url
+          };
+        })
+      })  
+    })
+ }
+
+ handleStarred(e){
+    if(!!this.state.starred.length)
+      return ;
+
+    const url = this.state.userinfo.linkStarred;
+    ajax()
+    .get(url)
+    .then((respose) => {
+      this.setState({ 
+        starred:respose.map( (elem , index) =>{
+          return {   
+            name:elem.name,
+            link:elem.html_url
+          };
+        })
+      })  
+    })
+ }
+
  render(){ 
   return <Appcontainer
-             userinfo = {this.state.userinfo}  
-              repos = {this.state.repos}
-              starred = {this.state.starred}
+            userinfo = {this.state.userinfo}  
+            repos = {this.state.repos}
+            starred = {this.state.starred}
+            handleSearch = {(e)=>this.handleSearch(e)}
+            handleStarred = {(e)=>this.handleStarred(e)}
+            handleRepos = {(e)=>this.handleRepos(e)}
           />
  }
 }

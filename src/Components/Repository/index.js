@@ -7,7 +7,11 @@ const Repository = (props)=>(
         <div className={props.className} >
          <h2> {props.title}: </h2>
          <ul>
-          {props.children}
+           {
+            props.repos.map((elem ,index)=>{
+              return  <li key={index} ><a key={index} href={elem.link}> {elem.name} </a></li>
+            })
+           }
          </ul>
         </div>
 );
@@ -19,7 +23,7 @@ Repository.defaultProps ={
 Repository.propTypes ={
 	className:PropTypes.string,
 	title:PropTypes.string.isRequired,
-	children:PropTypes.element.isRequired
+    repos:PropTypes.array.isRequired
 }
 
 export default Repository;
