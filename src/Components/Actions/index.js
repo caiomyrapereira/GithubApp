@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Actions  = (props)=>(
          <div className="actions">
@@ -8,5 +9,10 @@ const Actions  = (props)=>(
           <button onClick={props.handleStarred} > Favoritos </button>
          </div> 
 );
+
+Actions.propTypes ={
+	handleRepos:PropTypes.func.isRequired,
+	handleStarred:PropTypes.func.isRequired
+};
 
 export default Actions;

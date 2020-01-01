@@ -33,7 +33,11 @@ const Appcontainer = ({ userinfo, repos, starred, isFetching, handleSearch , han
 Appcontainer.propTypes = {
 	userinfo:PropTypes.object, 
 	repos:PropTypes.array.isRequired, 
-	starred:PropTypes.array.isRequired
+	starred:PropTypes.array.isRequired,
+    isFetching:PropTypes.bool.isRequired, 
+    handleSearch:PropTypes.func.isRequired,
+    handleStarred:PropTypes.func.isRequired,
+    handleRepos:PropTypes.func.isRequired
 };
 
 
