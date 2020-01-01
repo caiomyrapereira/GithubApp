@@ -9,7 +9,7 @@ const Repository = (props)=>(
          <ul>
            {
             props.repos.map((elem ,index)=>{
-              return  <li key={index} ><a key={index} href={elem.link}> {elem.name} </a></li>
+              return  <li key={index} ><a key={elem.id} href={elem.link}> {elem.name} </a></li>
             })
            }
          </ul>

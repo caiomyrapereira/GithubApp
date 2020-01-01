@@ -11,12 +11,14 @@ class App extends React.Component{
   this.state = {
     userinfo:null,
     repos:[],
-    starred:[]
+    starred:[],
+    isFetching:false
   };
  }
  
  handleSearch(e){
   const value = document.querySelector('[data-js="search"]').value; 
+  this.setState({isFetching:true});
   ajax().get(`https://api.github.com/users/${value}`)
   .then((respose)=>{
     this.setState({
@@ -30,9 +32,11 @@ class App extends React.Component{
         repos:respose.public_repos,
         followers:respose.followers,
         following:respose.following
-      }     
+      },
+      repos:[],
+      starred:[]     
     })
-  })
+  }).always(()=>this.setState({isFetching:false}));
  }
 
  handleRepos(e){
@@ -46,6 +50,7 @@ class App extends React.Component{
       this.setState({ 
         repos:respose.map( (elem , index) =>{
           return {   
+            id:elem.id,
             name:elem.name,
             link:elem.html_url
           };
@@ -65,6 +70,7 @@ class App extends React.Component{
       this.setState({ 
         starred:respose.map( (elem , index) =>{
           return {   
+            id:elem.id,
             name:elem.name,
             link:elem.html_url
           };
@@ -78,6 +84,7 @@ class App extends React.Component{
             userinfo = {this.state.userinfo}  
             repos = {this.state.repos}
             starred = {this.state.starred}
+            isFetching = {this.state.isFetching}
             handleSearch = {(e)=>this.handleSearch(e)}
             handleStarred = {(e)=>this.handleStarred(e)}
             handleRepos = {(e)=>this.handleRepos(e)}

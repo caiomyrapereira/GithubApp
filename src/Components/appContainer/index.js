@@ -9,9 +9,11 @@ import Repository from '../Repository';
 
 
 
-const Appcontainer = ({ userinfo, repos, starred, handleSearch , handleStarred , handleRepos }) => (
+const Appcontainer = ({ userinfo, repos, starred, isFetching, handleSearch , handleStarred , handleRepos }) => (
      <div className="App">
      <Search handleSearch={handleSearch} />   
+
+     { isFetching && <div> Carregando... </div> }
      { !!userinfo && <UserInfo   userinfo={userinfo}  />}
      { !!userinfo && <Actions handleStarred={handleStarred} handleRepos={handleRepos} />}
      
