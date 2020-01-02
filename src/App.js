@@ -14,6 +14,13 @@ class App extends React.Component{
     starred:[],
     isFetching:false
   };
+   
+  // bind no constructor
+  
+  this.handleSearch  = this.handleSearch.bind(this);
+  this.handleStarred = this.handleStarred.bind(this);
+  this.handleRepos = this.handleRepos.bind(this);
+
  }
  
  handleSearch(e){
@@ -85,9 +92,9 @@ class App extends React.Component{
             repos = {this.state.repos}
             starred = {this.state.starred}
             isFetching = {this.state.isFetching}
-            handleSearch = {(e)=>this.handleSearch(e)}
-            handleStarred = {(e)=>this.handleStarred(e)}
-            handleRepos = {(e)=>this.handleRepos(e)}
+            handleSearch = {this.handleSearch}
+            handleStarred = {this.handleStarred}
+            handleRepos = {this.handleRepos}
           />
  }
 }
