@@ -1,5 +1,3 @@
-'use strict';
-
 import React from 'react';
 import ajax  from '@fdaciuk/ajax';
 import Appcontainer from './Components/appContainer';

@@ -1,13 +1,12 @@
-'use strict';
-
 import React from 'react';
 import PropTypes from 'prop-types';
+import './style.css'
 
 
 const Search =({ handleSearch })=>(
      <div className="search">
       <input data-js="search" type="search" placeholder="Digite o nome do usuário no Gihhub"/>
-      <button onClick={ handleSearch } > 
+      <button className="searchUser"   onClick={ handleSearch } > 
         search 
       </button>
      </div>

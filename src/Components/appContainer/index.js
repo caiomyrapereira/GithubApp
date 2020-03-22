@@ -1,5 +1,3 @@
-'use strict';
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import Search from '../Search';
@@ -17,14 +15,16 @@ const Appcontainer = ({ userinfo, repos, starred, isFetching, handleSearch , han
      { !!userinfo && <UserInfo   userinfo={userinfo}  />}
      { !!userinfo && <Actions handleStarred={handleStarred} handleRepos={handleRepos} />}
      
-     { !!repos.length && 
-      <Repository className={'repos'} title={'Repositórios'} repos={repos}  />
+     <div className={'repository'}>
+       { !!repos.length && 
+          <Repository className={'repos'} title={'Repositórios'} repos={repos}  />
    
-     }
+       }
 
-     { !!starred.length && 
-      <Repository className={'starred'} title={'Favoritos'} repos={starred} / >
-     }
+       { !!starred.length && 
+         <Repository className={'starred'} title={'Favoritos'} repos={starred} / >
+       }
+     </div>
 
     </div>
 );

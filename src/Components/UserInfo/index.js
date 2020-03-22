@@ -1,10 +1,9 @@
-'use strict';
-
 import React from 'react';
 import PropTypes from 'prop-types';
+import './style.css';
 
 const UserInfo = ({userinfo})=>( 
-    <div  className="user-Info">
+    <div  className="user_Info">
      <img src={userinfo.photo} />
      <h1>
       <a href={userinfo.link} > {userinfo.userName} </a>

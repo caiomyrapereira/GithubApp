@@ -1,0 +1,14 @@
+.actions{
+	width:100%;
+	height: 30px;
+	max-width:500px;
+	margin:auto;
+	display: flex;
+	justify-content: space-around;
+}
+
+.actions button{
+	width:45%;
+	height: 100%;
+}
+

@@ -1,0 +1,18 @@
+.repository{
+	width:500px;
+	margin:auto;
+	display: flex;
+	flex-direction: wrap;
+}
+
+.repository .repos{
+	width: 250px;
+	height: 100%;
+	text-align: left;
+}
+
+.repository .starred{
+	width: 250px;
+	height: 100%;
+	text-align: right;
+}
